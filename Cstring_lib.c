@@ -19,7 +19,7 @@ void * Memset(void * dest,int value,uint length)
 void * Memchr(const void * str,int ch,uint n )
 {
     char *ptr = (char*)str ;
-//check if ptr is equal to NULL
+//check if ptr is not equal to NULL
     while(ptr&&ptr<((char*)str+n))
     {
         if(*(ptr)==ch)
@@ -37,12 +37,14 @@ void *Memcpy(void *dest, const void *src,uint n)
     {
         char *ptr1 = (char*)dest ;
         char *ptr2 = (char*)src;
-        while(n--)
+        //make sure the user doesn't Enter a size larger than size of src string
+        while(*ptr2&&n--)
         {
             *ptr1 =*ptr2 ;
             ptr1++;
             ptr2++;
         }
+        *(ptr2)='\0';
         return (char*)dest;
     }
     return NULL ;
