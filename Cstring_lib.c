@@ -1,6 +1,6 @@
 #include "my_string.h"
 
-void * Memsef(void * dest,int value,uint length)
+void * Memset(void * dest,int value,uint length)
 {
     if(dest)
     {
