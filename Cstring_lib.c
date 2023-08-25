@@ -5,7 +5,9 @@ void * Memset(void * dest,int value,uint length)
     if(dest)
     {
         char * ptr =(char*)dest ;
-        while(ptr<=((char*)dest+length))
+        //Worst case senarion : if the user inputs a length >=string size
+        //Make sure not to type into the NULL character 
+        while((*ptr!='\0')&&ptr<=((char*)dest+length))
         {
             *ptr =  (char)value ;
             ptr++ ;
